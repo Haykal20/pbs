@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas Basis Data - Lengkap</title>
+    <title>Tugas Basis Data - Zoom Halus</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- jsPDF and html2canvas for PDF generation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,6 +43,10 @@
         pre code.hljs {
             border-radius: 0.5rem;
         }
+        /* Modal transition */
+        #imageModal {
+            transition: opacity 0.3s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -63,10 +64,6 @@
                     <button onclick="exportToWord()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center space-x-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 11-2 0V4a1 1 0 00-1-1H7a1 1 0 00-1 1v12a1 1 0 11-2 0V4z" clip-rule="evenodd" /><path d="M11.707 11.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L9.586 12 6.293 8.707a1 1 0 011.414-1.414l4 4z" /></svg>
                         <span>Cetak Word</span>
-                    </button>
-                    <button onclick="exportToPdf()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" /></svg>
-                        <span>Cetak PDF</span>
                     </button>
                 </div>
             </div>
@@ -145,7 +142,7 @@
             <!-- Tugas 2 -->
             <section class="bg-white rounded-xl shadow-md p-6 mb-8">
                 <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-green-500 pb-2 mb-4">Tugas 2: Proses Pembuatan Tabel dan Input Data</h2>
-                <p class="mb-6 text-gray-600">Berikut adalah dokumentasi langkah-langkah pembuatan basis data, tabel, dan proses memasukkan data menggunakan perintah SQL di phpMyAdmin.</p>
+                <p class="mb-6 text-gray-600">Berikut adalah dokumentasi langkah-langkah pembuatan basis data, tabel, dan proses memasukkan data menggunakan perintah SQL di phpMyAdmin. <span class="font-semibold text-blue-600">Klik gambar untuk memperbesar.</span></p>
 
                 <div class="space-y-8">
                     <div>
@@ -156,7 +153,10 @@ CREATE DATABASE haykal;
 
 -- 2. Pilih database
 USE haykal;</code></pre>
+<div class="mt-8"></div>
+                        <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs1.png" alt="Membuat Database" onclick="openModal(this.src)" class="mt-3 w-full rounded-lg border border-gray-300 shadow-sm cursor-pointer transition transform hover:scale-[1.02] hover:shadow-lg">
                     </div>
+
                     <div>
                         <h3 class="text-lg font-semibold text-gray-700 mb-2">2. Membuat Tabel Mahasiswa</h3>
                         <p class="text-gray-600 mb-2">Selanjutnya, membuat tabel `mahasiswa` di dalam database `haykal` dengan struktur kolom yang telah ditentukan.</p>
@@ -169,29 +169,21 @@ CREATE TABLE mahasiswa (
     dosen VARCHAR(50),
     nilai INT
 );</code></pre>
+<div class="mt-8"></div>
+                        <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs2.png" alt="Membuat Database" onclick="openModal(this.src)" class="mt-3 w-full rounded-lg border border-gray-300 shadow-sm cursor-pointer transition transform hover:scale-[1.02] hover:shadow-lg">
                     </div>
+
                     <div>
                         <h3 class="text-lg font-semibold text-gray-700 mb-2">3. Memasukkan Data ke Tabel</h3>
                         <p class="text-gray-600 mb-2">Setelah tabel berhasil dibuat, langkah berikutnya adalah memasukkan data mahasiswa ke dalam tabel menggunakan perintah `INSERT`.</p>
                         <pre><code class="language-sql">-- 4. Isi data
 INSERT INTO mahasiswa (nim, nama, prodi, mk, dosen, nilai)
-VALUES ('24210076', 'Haykal Furqan Shafiq', 'Ilkom', 'Pengantar Basis Data', 'Oktalia Triananda Lovita, S.ST, MT', '100');</code></pre>     
+VALUES ('24210076', 'Haykal Furqan Shafiq', 'Ilkom', 'Pengantar Basis Data', 'Oktalia Triananda Lovita, S.ST, MT', '100');</code></pre>
+<div class="mt-8"></div>
+                        <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs3.png" alt="Memasukkan Data" onclick="openModal(this.src)" class="mt-3 w-full rounded-lg border border-gray-300 shadow-sm cursor-pointer transition transform hover:scale-[1.02] hover:shadow-lg">
                     </div>
-                 <section class="bg-white rounded-xl shadow-md p-6 mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 border-b-2 pb-2 mb-4">Foto: Tabel Data MySql</h2>
-                <div class="overflow-x-auto">
-               <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs1.png" alt="Placeholder Tabel Data Mahasiswa" class="w-full rounded-lg border border-gray-300">
-                </div>
-                <div class="overflow-x-auto mt-4">
-                    <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs2.png" alt="Placeholder Tabel Data Mahasiswa" class="w-full rounded-lg border border-gray-300">
-                </div>
-                <div class="overflow-x-auto mt-4">
-                    <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs4.png" alt="Placeholder Tabel Data Mahasiswa" class="w-full rounded-lg border border-gray-300">
-                </div>
-                <div class="overflow-x-auto mt-4">
-                    <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs5.png" alt="Placeholder Tabel Data Mahasiswa" class="w-full rounded-lg border border-gray-300">
-                </div>   
-                <div class="overflow-x-auto mt-4">
+
+                     <div>
                         <h3 class="text-lg font-semibold text-gray-700 mb-2">4. Hasil Tabel Akhir</h3>
                         <p class="text-gray-600 mb-2">Tabel di bawah ini menampilkan hasil akhir dari data yang telah dimasukkan.</p>
                         <div class="overflow-x-auto mt-4">
@@ -225,6 +217,9 @@ VALUES ('24210076', 'Haykal Furqan Shafiq', 'Ilkom', 'Pengantar Basis Data', 'Ok
                         </div>
                     </div>
                 </div>
+                <div class="mt-8">
+                  <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs5.png" alt="Memasukkan Data" onclick="openModal(this.src)" class="mt-3 w-full rounded-lg border border-gray-300 shadow-sm cursor-pointer transition transform hover:scale-[1.02] hover:shadow-lg">
+                    </div>
             </section>
             
             <!-- Tugas 3 -->
@@ -283,39 +278,18 @@ VALUES ('24210076', 'Haykal Furqan Shafiq', 'Ilkom', 'Pengantar Basis Data', 'Ok
         </main>
         
         <footer class="text-center text-sm text-gray-500 mt-8 pb-4">
-            <p>&copy; 2025 - Dibuat Oleh Haykal Furqan Shafiq</p>
+            <p>&copy; 2025 - Dibuat oleh Haykalf.s</p>
         </footer>
 
     </div>
 
+    <!-- Image Modal -->
+    <div id="imageModal" onclick="closeModal()" class="no-print fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 p-4 sm:p-6 md:p-8 opacity-0 pointer-events-none transition-opacity duration-300">
+        <img id="modalImage" src="" alt="Gambar Diperbesar" onclick="event.stopPropagation()" class="block max-h-full max-w-full rounded-lg shadow-2xl">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-white bg-black bg-opacity-50 hover:bg-opacity-75 rounded-full h-10 w-10 flex items-center justify-center text-2xl font-bold leading-none">&times;</button>
+    </div>
+
     <script>
-        function exportToPdf() {
-            const { jsPDF } = window.jspdf;
-            const content = document.getElementById('content-to-print');
-            
-            html2canvas(content, {
-                scale: 2,
-                useCORS: true 
-            }).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF({
-                    orientation: 'portrait',
-                    unit: 'pt',
-                    format: 'a4'
-                });
-
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const canvasWidth = canvas.width;
-                const canvasHeight = canvas.height;
-                const ratio = canvasWidth / canvasHeight;
-                const width = pdfWidth;
-                const height = width / ratio;
-
-                pdf.addImage(imgData, 'PNG', 0, 0, width, height);
-                pdf.save('Tugas_Basis_Data_Lengkap.pdf');
-            });
-        }
-
         function exportToWord() {
             const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' "+
                 "xmlns:w='urn:schemas-microsoft-com:office:word' "+
@@ -346,9 +320,24 @@ VALUES ('24210076', 'Haykal Furqan Shafiq', 'Ilkom', 'Pengantar Basis Data', 'Ok
             const fileDownload = document.createElement("a");
             document.body.appendChild(fileDownload);
             fileDownload.href = source;
-            fileDownload.download = 'Tugas_Basis_Data_Lengkap.doc';
+            fileDownload.download = 'Tugas_Basis_Data_Final.doc';
             fileDownload.click();
             document.body.removeChild(fileDownload);
+        }
+
+        // --- Image Modal Logic ---
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+
+        function openModal(src) {
+            modalImage.src = src;
+            modal.classList.remove('opacity-0');
+            modal.classList.remove('pointer-events-none');
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modal.classList.add('pointer-events-none');
         }
     </script>
 
