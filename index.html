@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Basis Data - Lengkap</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- jsPDF and html2canvas for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for printing */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #content-to-print, #content-to-print * {
+                visibility: visible;
+            }
+            #content-to-print {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            .no-print {
+                display: none;
+            }
+            pre code.hljs {
+                background: #f3f4f6 !important;
+                color: #1f2937 !important;
+            }
+        }
+        pre code.hljs {
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <!-- Header and Action Buttons -->
+        <header class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">Tugas Pengantar Basis Data</h1>
+                    <p class="text-gray-500 mt-1">Disusun oleh: Haykal Furqan Shafiq</p>
+                </div>
+                <div class="flex items-center space-x-3 mt-4 sm:mt-0 no-print">
+                    <button onclick="exportToWord()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 11-2 0V4a1 1 0 00-1-1H7a1 1 0 00-1 1v12a1 1 0 11-2 0V4z" clip-rule="evenodd" /><path d="M11.707 11.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L9.586 12 6.293 8.707a1 1 0 011.414-1.414l4 4z" /></svg>
+                        <span>Cetak Word</span>
+                    </button>
+                    <button onclick="exportToPdf()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" /></svg>
+                        <span>Cetak PDF</span>
+                    </button>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-4 pt-4 text-sm text-gray-600">
+                <p><strong>NIM:</strong> 24210076</p>
+                <p><strong>Rombel:</strong> B</p>
+                <p><strong>Program Studi:</strong> Ilmu Komputer</p>
+            </div>
+        </header>
+        
+        <!-- Main Content to be printed -->
+        <main id="content-to-print">
+
+            <!-- Tugas 1 -->
+            <section class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-blue-500 pb-2 mb-4">Tugas 1: Bahasa yang Digunakan di Pengantar Basis Data</h2>
+                <p class="mb-6 text-gray-600">Dalam sistem manajemen basis data (DBMS), terutama yang berbasis SQL (Structured Query Language), terdapat empat jenis sub-bahasa yang digunakan untuk berinteraksi dengan basis data. Keempatnya memiliki fungsi yang spesifik, mulai dari mendefinisikan struktur hingga memanipulasi dan mengontrol data.</p>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">1. Data Definition Language (DDL)</h3>
+                        <p class="mt-1 text-gray-600">DDL digunakan untuk mendefinisikan, mengubah, dan menghapus struktur objek-objek basis data seperti tabel, indeks, dan pengguna. Perintah DDL bersifat permanen (autocommit) dan tidak dapat dibatalkan dengan mudah.</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
+                            <li><span class="font-semibold">Fungsi Utama:</span> Membuat skema dan struktur basis data.</li>
+                            <li><span class="font-semibold">Contoh Perintah:</span>
+                                <ul class="list-inside ml-4 mt-1">
+                                    <li><code class="bg-gray-200 text-sm p-1 rounded">CREATE</code>: Untuk membuat objek baru (misal, `CREATE DATABASE`, `CREATE TABLE`).</li>
+                                    <li><code class="bg-gray-200 text-sm p-1 rounded">ALTER</code>: Untuk mengubah struktur objek yang sudah ada (misal, `ALTER TABLE ADD COLUMN`).</li>
+                                    <li><code class="bg-gray-200 text-sm p-1 rounded">DROP</code>: Untuk menghapus objek dari basis data (misal, `DROP TABLE`).</li>
+                                    <li><code class="bg-gray-200 text-sm p-1 rounded">TRUNCATE</code>: Untuk menghapus semua data dari tabel secara cepat tanpa menghapus struktur tabelnya.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">2. Data Manipulation Language (DML)</h3>
+                        <p class="mt-1 text-gray-600">DML digunakan untuk mengelola dan memanipulasi data yang ada di dalam tabel. Perintah ini berhubungan dengan isi dari tabel, bukan strukturnya.</p>
+                         <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
+                            <li><span class="font-semibold">Fungsi Utama:</span> Memasukkan, memperbarui, dan menghapus record data.</li>
+                            <li><span class="font-semibold">Contoh Perintah:</span>
+                                <ul class="list-inside ml-4 mt-1">
+                                    <li><code class="bg-gray-200 text-sm p-1 rounded">INSERT</code>: Untuk menambahkan baris data baru ke dalam tabel.</li>
+                                    <li><code class="bg-gray-200 text-sm p-1 rounded">UPDATE</code>: Untuk mengubah atau memperbarui data yang sudah ada di dalam tabel.</li>
+                                    <li><code class="bg-gray-200 text-sm p-1 rounded">DELETE</code>: Untuk menghapus baris data dari tabel.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">3. Data Query Language (DQL)</h3>
+                        <p class="mt-1 text-gray-600">DQL (sering dianggap bagian dari DML) digunakan secara spesifik untuk melakukan kueri atau mengambil data dari basis data. Perintah utamanya hanya satu, tetapi sangat fleksibel dan kuat.</p>
+                         <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
+                            <li><span class="font-semibold">Fungsi Utama:</span> Mengambil dan menampilkan data dari satu atau lebih tabel.</li>
+                            <li><span class="font-semibold">Contoh Perintah:</span>
+                                <ul class="list-inside ml-4 mt-1">
+                                    <li><code class="bg-gray-200 text-sm p-1 rounded">SELECT</code>: Untuk memilih dan mengambil data berdasarkan kriteria tertentu, bisa digabungkan dengan klausa seperti `FROM`, `WHERE`, `GROUP BY`, `ORDER BY`.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">4. Data Control Language (DCL)</h3>
+                        <p class="mt-1 text-gray-600">DCL digunakan untuk mengontrol hak akses dan izin pengguna (privileges) terhadap basis data. Ini sangat penting untuk menjaga keamanan dan integritas data.</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
+                            <li><span class="font-semibold">Fungsi Utama:</span> Mengelola hak akses pengguna.</li>
+                            <li><span class="font-semibold">Contoh Perintah:</span>
+                                <ul class="list-inside ml-4 mt-1">
+                                    <li><code class="bg-gray-200 text-sm p-1 rounded">GRANT</code>: Memberikan izin kepada pengguna untuk melakukan operasi tertentu (misal, `GRANT SELECT ON mahasiswa TO user1`).</li>
+                                    <li><code class="bg-gray-200 text-sm p-1 rounded">REVOKE</code>: Mencabut izin yang telah diberikan kepada pengguna.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tugas 2 -->
+            <section class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-green-500 pb-2 mb-4">Tugas 2: Proses Pembuatan Tabel dan Input Data</h2>
+                <p class="mb-6 text-gray-600">Berikut adalah dokumentasi langkah-langkah pembuatan basis data, tabel, dan proses memasukkan data menggunakan perintah SQL di phpMyAdmin.</p>
+
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">1. Membuat dan Menggunakan Database</h3>
+                        <p class="text-gray-600 mb-2">Langkah pertama adalah membuat database baru dengan nama `haykal` dan kemudian memilih database tersebut untuk digunakan.</p>
+                        <pre><code class="language-sql">-- 1. Bikin database
+CREATE DATABASE haykal;
+
+-- 2. Pilih database
+USE haykal;</code></pre>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">2. Membuat Tabel Mahasiswa</h3>
+                        <p class="text-gray-600 mb-2">Selanjutnya, membuat tabel `mahasiswa` di dalam database `haykal` dengan struktur kolom yang telah ditentukan.</p>
+                         <pre><code class="language-sql">-- 3. Bikin tabel di dalam database
+CREATE TABLE mahasiswa (
+    nim VARCHAR(20) PRIMARY KEY,
+    nama VARCHAR(50),
+    prodi VARCHAR(50),
+    mk VARCHAR(50),
+    dosen VARCHAR(50),
+    nilai INT
+);</code></pre>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">3. Memasukkan Data ke Tabel</h3>
+                        <p class="text-gray-600 mb-2">Setelah tabel berhasil dibuat, langkah berikutnya adalah memasukkan data mahasiswa ke dalam tabel menggunakan perintah `INSERT`.</p>
+                        <pre><code class="language-sql">-- 4. Isi data
+INSERT INTO mahasiswa (nim, nama, prodi, mk, dosen, nilai)
+VALUES ('24210076', 'Haykal Furqan Shafiq', 'Ilkom', 'Pengantar Basis Data', 'Oktalia Triananda Lovita, S.ST, MT', '100');</code></pre>     
+                    </div>
+                 <section class="bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 border-b-2 pb-2 mb-4">Foto: Tabel Data MySql</h2>
+                <div class="overflow-x-auto">
+               <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs1.png" alt="Placeholder Tabel Data Mahasiswa" class="w-full rounded-lg border border-gray-300">
+                </div>
+                <div class="overflow-x-auto mt-4">
+                    <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs2.png" alt="Placeholder Tabel Data Mahasiswa" class="w-full rounded-lg border border-gray-300">
+                </div>
+                <div class="overflow-x-auto mt-4">
+                    <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs4.png" alt="Placeholder Tabel Data Mahasiswa" class="w-full rounded-lg border border-gray-300">
+                </div>
+                <div class="overflow-x-auto mt-4">
+                    <img src="https://raw.githubusercontent.com/Haykal20/foto/main/pbs5.png" alt="Placeholder Tabel Data Mahasiswa" class="w-full rounded-lg border border-gray-300">
+                </div>   
+                <div class="overflow-x-auto mt-4">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">4. Hasil Tabel Akhir</h3>
+                        <p class="text-gray-600 mb-2">Tabel di bawah ini menampilkan hasil akhir dari data yang telah dimasukkan.</p>
+                        <div class="overflow-x-auto mt-4">
+                            <table class="w-full text-sm text-left text-gray-500 rounded-lg">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">Nama</th>
+                                        <th scope="col" class="px-6 py-3">Prodi</th>
+                                        <th scope="col" class="px-6 py-3">Mata Kuliah</th>
+                                        <th scope="col" class="px-6 py-3">Nama Dosen</th>
+                                        <th scope="col" class="px-6 py-3">Nilai/KRS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b hover:bg-gray-50">
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Haykal Furqan Shafiq</th>
+                                        <td class="px-6 py-4">Ilmu Komputer</td>
+                                        <td class="px-6 py-4">Pengantar Basis Data</td>
+                                        <td class="px-6 py-4">Oktalia Triananda Lovita, S.ST, MT</td>
+                                        <td class="px-6 py-4 font-semibold text-center">100</td>
+                                    </tr>
+                                    <tr class="bg-white border-b hover:bg-gray-50">
+                                        <td class="px-6 py-4 text-gray-400">...</td>
+                                        <td class="px-6 py-4 text-gray-400">...</td>
+                                        <td class="px-6 py-4 text-gray-400">...</td>
+                                        <td class="px-6 py-4 text-gray-400">...</td>
+                                        <td class="px-6 py-4 text-gray-400 text-center">...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tugas 3 -->
+            <section class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-purple-500 pb-2 mb-4">Tugas 3: Perbedaan Basis Data Relasional dan Non-Relasional</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500 rounded-lg">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">Kriteria</th>
+                                <th scope="col" class="px-6 py-3">Basis Data Relasional (SQL)</th>
+                                <th scope="col" class="px-6 py-3">Basis Data Non-Relasional (NoSQL)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <th class="px-6 py-4 font-medium text-gray-900">Struktur Data</th>
+                                <td class="px-6 py-4">Terstruktur (Schema-on-Write). Data dalam format tabel (baris dan kolom) dengan skema kaku.</td>
+                                <td class="px-6 py-4">Tidak terstruktur/Semi-terstruktur (Schema-on-Read). Format beragam (dokumen, key-value, dll) dengan skema fleksibel.</td>
+                            </tr>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <th class="px-6 py-4 font-medium text-gray-900">Skema</th>
+                                <td class="px-6 py-4">Statis. Harus didefinisikan sebelum data dimasukkan.</td>
+                                <td class="px-6 py-4">Dinamis. Dapat diubah kapan saja.</td>
+                            </tr>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <th class="px-6 py-4 font-medium text-gray-900">Hubungan Data</th>
+                                <td class="px-6 py-4">Menggunakan relasi antar tabel (Foreign Key).</td>
+                                <td class="px-6 py-4">Hubungan tidak ditekankan, data terkait sering disimpan bersama.</td>
+                            </tr>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <th class="px-6 py-4 font-medium text-gray-900">Bahasa Kueri</th>
+                                <td class="px-6 py-4">SQL (Structured Query Language).</td>
+                                <td class="px-6 py-4">Tidak ada bahasa standar, tiap basis data punya sintaks sendiri.</td>
+                            </tr>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <th class="px-6 py-4 font-medium text-gray-900">Skalabilitas</th>
+                                <td class="px-6 py-4">Vertikal (Scale-up), menambah kekuatan satu server.</td>
+                                <td class="px-6 py-4">Horizontal (Scale-out), menambah lebih banyak server.</td>
+                            </tr>
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <th class="px-6 py-4 font-medium text-gray-900">Konsistensi</th>
+                                <td class="px-6 py-4">Menganut properti ACID (konsistensi tinggi).</td>
+                                <td class="px-6 py-4">Menganut properti BASE (mengutamakan ketersediaan).</td>
+                            </tr>
+                             <tr class="bg-white hover:bg-gray-50">
+                                <th class="px-6 py-4 font-medium text-gray-900">Contoh</th>
+                                <td class="px-6 py-4">MySQL, PostgreSQL, Oracle, SQL Server.</td>
+                                <td class="px-6 py-4">MongoDB, Cassandra, Redis, Neo4j.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center text-sm text-gray-500 mt-8 pb-4">
+            <p>&copy; 2025 - Dibuat Oleh Haykal Furqan Shafiq</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function exportToPdf() {
+            const { jsPDF } = window.jspdf;
+            const content = document.getElementById('content-to-print');
+            
+            html2canvas(content, {
+                scale: 2,
+                useCORS: true 
+            }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'pt',
+                    format: 'a4'
+                });
+
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const canvasWidth = canvas.width;
+                const canvasHeight = canvas.height;
+                const ratio = canvasWidth / canvasHeight;
+                const width = pdfWidth;
+                const height = width / ratio;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+                pdf.save('Tugas_Basis_Data_Lengkap.pdf');
+            });
+        }
+
+        function exportToWord() {
+            const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+                "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+                "xmlns='http://www.w3.org/TR/REC-html40'>"+
+                "<head><meta charset='utf-8'><title>Export HTML to Word Document</title></head><body>";
+            
+            const footer = "</body></html>";
+            
+            const content = document.getElementById('content-to-print').cloneNode(true);
+            
+            const style = `
+                <style>
+                    body { font-family: 'Times New Roman', Times, serif; font-size: 12pt; }
+                    h2 { font-size: 18pt; color: #333; border-bottom: 2px solid #ccc; padding-bottom: 5px; }
+                    h3 { font-size: 14pt; color: #444; }
+                    table { border-collapse: collapse; width: 100%; }
+                    th, td { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+                    th { background-color: #f2f2f2; }
+                    ul { margin-top: 5px; }
+                    code { background-color: #f0f0f0; padding: 2px 4px; border-radius: 3px; border: 1px solid #ddd; font-family: 'Courier New', Courier, monospace;}
+                    pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; border: 1px solid #ddd; white-space: pre-wrap; word-wrap: break-word; }
+                </style>
+            `;
+            
+            const sourceHTML = header + style + content.innerHTML + footer;
+            
+            const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+            const fileDownload = document.createElement("a");
+            document.body.appendChild(fileDownload);
+            fileDownload.href = source;
+            fileDownload.download = 'Tugas_Basis_Data_Lengkap.doc';
+            fileDownload.click();
+            document.body.removeChild(fileDownload);
+        }
+    </script>
+
+</body>
+</html>
